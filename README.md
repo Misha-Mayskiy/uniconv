@@ -1,6 +1,6 @@
 # UniConv: Универсальный конвертер инженерных единиц
 
-[![PyPI version](https://badge.fury.io/py/uniconv.svg)](https://badge.fury.io/py/uniconv) <!-- Заработает после публикации -->
+[![PyPI version](https://badge.fury.io/py/uniconv.svg)](https://badge.fury.io/py/uniconv)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Универсальный и расширяемый конвертер инженерных единиц измерения, ориентированный на термодинамические и теплогидравлические расчеты.
