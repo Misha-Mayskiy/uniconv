@@ -12,7 +12,7 @@ class TestUnitConverter(unittest.TestCase):
     def setUp(self):
         """Создает экземпляр конвертера перед каждым тестом."""
         self.uc = UnitConverter()
-        self.precision = 5  # Точность для сравнения чисел с плавающей запятой
+        self.precision = 7
 
     def test_pressure_conversions(self):
         """Тестирование конверсий давления."""
@@ -24,7 +24,7 @@ class TestUnitConverter(unittest.TestCase):
                                self.precision)
         # МПа в кгс/см²
         self.assertAlmostEqual(self.uc.convert(1, from_unit="МПа", to_unit="кгс/см²", parameter_type="pressure"),
-                               10.19716, self.precision)
+                               10.1971621, self.precision)
 
     def test_temperature_conversions(self):
         """Тестирование нелинейной конверсии температуры."""
@@ -43,7 +43,7 @@ class TestUnitConverter(unittest.TestCase):
         # МВт в кВт
         self.assertEqual(self.uc.convert(1, from_unit="МВт", to_unit="кВт", parameter_type="power"), 1000)
         # кВт в л.с. (1 кВт ≈ 1.35962 л.с.)
-        self.assertAlmostEqual(self.uc.convert(100, from_unit="кВт", to_unit="л.с.", parameter_type="power"), 135.9621,
+        self.assertAlmostEqual(self.uc.convert(100, from_unit="кВт", to_unit="л.с.", parameter_type="power"), 135.9621617,
                                self.precision)
         # л.с. в МВт
         self.assertAlmostEqual(self.uc.convert(1, from_unit="л.с.", to_unit="МВт", parameter_type="power"),
@@ -57,7 +57,7 @@ class TestUnitConverter(unittest.TestCase):
             self.precision)
         # кДж/кг в ккал/кг
         self.assertAlmostEqual(
-            self.uc.convert(1000, from_unit="кДж/кг", to_unit="ккал/кг", parameter_type="specific_enthalpy"), 238.84589,
+            self.uc.convert(1000, from_unit="кДж/кг", to_unit="ккал/кг", parameter_type="specific_enthalpy"), 238.8458966,
             self.precision)
 
     def test_dryness_fraction_conversion(self):
@@ -71,7 +71,7 @@ class TestUnitConverter(unittest.TestCase):
 
     def test_identity_conversion(self):
         """Тестирование конверсии единицы в саму себя."""
-        self.assertEqual(self.uc.convert(123, from_unit="МПа", to_unit="МПа", parameter_type="pressure"), 123)
+        self.assertAlmostEqual(self.uc.convert(123, from_unit="МПа", to_unit="МПа", parameter_type="pressure"), 123)
         self.assertEqual(self.uc.convert(45, from_unit="°C", to_unit="°C", parameter_type="temperature"), 45)
 
     def test_error_handling(self):

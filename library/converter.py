@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Callable, Union, Dict, Any
-import constants as const
+from . import constants as const
 
 Number = Union[int, float]
 FactorOrFunc = Union[Number, Callable[[Number], Number]]
