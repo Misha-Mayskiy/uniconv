@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from library import UnitConverter, UnknownUnitError, UnknownParameterError
+from uniconv import UnitConverter, UnknownUnitError, UnknownParameterError
 
 
 class TestUnitConverter(unittest.TestCase):
